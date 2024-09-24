@@ -7,7 +7,6 @@ function falarTexto() {
     campo.innerHTML = input.value;
     campo.style.display = 'block';
     responsiveVoice.speak(input.value, 'Brazilian Portuguese Female', { rate: 1.2 });
-    document.getElementById('reiniciar').removeAttribute('disabled');
     limparCampo();    
 }
 
@@ -20,10 +19,6 @@ function limparCampo() {
     inputTexto.focus();
 }
 
-function reiniciar() {    
-    limparCampo();
-    document.getElementById('reiniciar').setAttribute('disabled', true)
-}
 
 document.querySelector('input').addEventListener('keydown', (event) => {
         switch (event.key) {
@@ -33,7 +28,7 @@ document.querySelector('input').addEventListener('keydown', (event) => {
             
             case 'Escape':
                 // reiniciarJogo();
-                document.getElementById('reiniciar').click();
+                limparCampo();
                 break;
         }
     }, true,
